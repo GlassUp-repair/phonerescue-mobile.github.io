@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glassup | Mobile Repair at Your Door</title>
+<meta name="description" content="Glassup is a mobile phone repair service that comes to you. Screen, battery, charging port and more, repaired at your door.">
+<meta name="theme-color" content="#0b1f33">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='18' y='6' width='28' height='52' rx='7' fill='%2322d3ee'/%3E%3Crect x='22' y='12' width='20' height='36' rx='3' fill='%230b1f33'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6fafd;
+    --ink:#0b1f33;
+    --muted:#52667a;
+    --card:#ffffff;
+    --line:#dbe6ef;
+    --brand:#0ea5c6;
+    --brand-dark:#0b7f9a;
+    --accent:#22d3ee;
+    --navy:#0b1f33;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+  }
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:10;background:rgba(246,250,253,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.3rem;text-decoration:none;letter-spacing:-.02em}
+  .logo svg{width:28px;height:28px}
+  .nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+  .nav a.link{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+  .nav a.link:hover{color:var(--ink)}
+  .btn{
+    display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;
+    padding:12px 22px;border-radius:999px;border:0;cursor:pointer;font-size:1rem;
+    transition:transform .15s,background .15s;
+  }
+  .btn:hover{background:var(--brand-dark);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+  .btn.ghost:hover{background:rgba(255,255,255,.1)}
+  .btn.small{padding:9px 18px;font-size:.92rem}
+
+  /* Hero */
+  .hero{
+    background:radial-gradient(900px 500px at 85% 20%,rgba(34,211,238,.28),transparent 60%),
+               linear-gradient(160deg,#0b1f33 0%,#10375a 100%);
+    color:#fff;padding:84px 0 92px;overflow:hidden;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+  .eyebrow{display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.8rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px}
+  .hero h1 span{color:var(--accent)}
+  .hero p{font-size:1.15rem;color:#c5d7e8;max-width:520px;margin-bottom:30px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  .phone{
+    justify-self:center;width:230px;aspect-ratio:9/18.5;border-radius:36px;
+    background:linear-gradient(145deg,#1b4468,#0c243b);border:3px solid #2a5a85;
+    position:relative;box-shadow:0 30px 70px rgba(0,0,0,.45);transform:rotate(6deg);
+  }
+  .phone::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:60px;height:8px;border-radius:8px;background:#06121e}
+  .phone .screen{
+    position:absolute;inset:30px 12px 14px;border-radius:22px;
+    background:linear-gradient(160deg,#22d3ee,#0ea5c6 55%,#0b6f8c);overflow:hidden;
+  }
+  .phone .screen::after{
+    content:"";position:absolute;top:-20%;left:-30%;width:70%;height:160%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:rotate(12deg);
+  }
+  .crack{position:absolute;inset:0;width:100%;height:100%}
+
+  /* Sections */
+  section{padding:80px 0}
+  .head{text-align:center;max-width:620px;margin:0 auto 46px}
+  .head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+  .head p{color:var(--muted);font-size:1.05rem}
+
+  .grid{display:grid;gap:20px}
+  .services{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(11,31,51,.08)}
+  .icon{width:46px;height:46px;border-radius:12px;background:rgba(14,165,198,.12);display:grid;place-items:center;margin-bottom:16px}
+  .icon svg{width:24px;height:24px;stroke:var(--brand-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{font-size:1.1rem;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.95rem}
+
+  .how{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+  .step{padding:8px 6px}
+  .step::before{
+    counter-increment:s;content:counter(s);display:grid;place-items:center;
+    width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--accent);font-weight:800;margin-bottom:14px;
+  }
+  .step h3{margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.97rem}
+
+  /* Contact */
+  .contact .box{
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;background:var(--navy);color:#fff;
+    border-radius:26px;padding:44px;
+  }
+  .contact h2{font-size:clamp(1.7rem,3.2vw,2.3rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+  .contact .info p{color:#c5d7e8;margin-bottom:22px}
+  .contact .ways a{display:block;color:var(--accent);font-weight:600;text-decoration:none;margin-bottom:8px}
+  .contact .ways a:hover{text-decoration:underline}
+  form{display:grid;gap:14px}
+  label{font-size:.85rem;font-weight:600;color:#c5d7e8;display:block;margin-bottom:5px}
+  input,select,textarea{
+    width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a5a85;background:#0f2c47;color:#fff;
+    font:inherit;
+  }
+  input::placeholder,textarea::placeholder{color:#7f9bb5}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  textarea{min-height:96px;resize:vertical}
+  .note{font-size:.8rem;color:#8fa8c0}
+
+  footer{padding:34px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  footer strong{color:var(--ink)}
+
+  @media (max-width:820px){
+    .hero{padding:56px 0 64px}
+    .hero .wrap{grid-template-columns:1fr}
+    .phone{width:170px;order:-1;margin-bottom:6px}
+    .contact .box{grid-template-columns:1fr;padding:28px}
+    .row{grid-template-columns:1fr}
+    .nav ul li:not(:last-child){display:none}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Glassup home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="18" y="4" width="28" height="56" rx="8" fill="#22d3ee"/><rect x="22" y="11" width="20" height="38" rx="3" fill="#0b1f33"/></svg>
+      Glassup
+    </a>
+    <ul>
+      <li><a class="link" href="#services">Services</a></li>
+      <li><a class="link" href="#how">How it works</a></li>
+      <li><a class="link" href="#book">Contact</a></li>
+      <li><a class="btn small" href="#book">Book a repair</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="padding-top:84px">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Mobile phone repair</span>
+        <h1>Mobile Repair <span>at Your Door.</span></h1>
+        <p>Cracked screen? Dead battery? Skip the trip to the shop. Glassup comes to you, so you can get your phone fixed without putting your day on hold.</p>
+        <div class="cta">
+          <a class="btn" href="#book">Book a repair</a>
+          <a class="btn ghost" href="#services">See what we fix</a>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <svg class="crack" viewBox="0 0 100 200" preserveAspectRatio="none">
+            <g stroke="rgba(255,255,255,.7)" stroke-width="0.8" fill="none" stroke-linecap="round">
+              <path d="M62 0 L55 40 L68 70 L50 110 L58 150 L48 200"/>
+              <path d="M55 40 L30 55 L12 52"/>
+              <path d="M68 70 L90 82 L100 78"/>
+              <path d="M50 110 L28 125 L10 140"/>
+              <path d="M58 150 L80 160 L96 172"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <h2>What we repair</h2>
+        <p>The most common phone problems, fixed wherever you are.</p>
+      </div>
+      <div class="grid services">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 7l2 3-2 3 2 4"/></svg></div>
+          <h3>Screen replacement</h3>
+          <p>Cracked, shattered or unresponsive screens replaced.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="16" height="9" rx="2"/><path d="M21 11v3M8 11v3"/></svg></div>
+          <h3>Battery replacement</h3>
+          <p>Phone dying too fast or shutting off? Get a fresh battery.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+          <h3>Charging port</h3>
+          <p>Not charging or only charging at certain angles? We can fix it.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+          <h3>Camera repair</h3>
+          <p>Blurry, cracked or not working front or back cameras.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+          <h3>Water damage</h3>
+          <p>Dropped it in water? Bring it back to life if it can be saved.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+          <h3>Something else?</h3>
+          <p>Speakers, buttons, back glass and more. Just ask and we'll let you know.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="head">
+        <h2>Repair in three simple steps</h2>
+        <p>No waiting rooms, no commute.</p>
+      </div>
+      <div class="grid steps">
+        <div class="step">
+          <h3>Tell us what's wrong</h3>
+          <p>Send us your phone model and the problem using the form below, or contact us directly.</p>
+        </div>
+        <div class="step">
+          <h3>We come to you</h3>
+          <p>Pick a time and place that works for you, whether that's home, work, or somewhere in between.</p>
+        </div>
+        <div class="step">
+          <h3>Back to normal</h3>
+          <p>We repair your phone and hand it back, so you can carry on with your day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="book">
+    <div class="wrap">
+      <div class="box">
+        <div class="info">
+          <h2>Book your repair</h2>
+          <p>Tell us about your phone and we'll get back to you to confirm details and a time.</p>
+          <div class="ways">
+            <!-- TODO: replace with your real phone number, email and WhatsApp number -->
+            <a href="tel:+10000000000">Call: (000) 000-0000</a>
+            <a href="mailto:hello@yourdomain.com">Email: hello@yourdomain.com</a>
+            <a href="https://wa.me/10000000000" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- TODO: create a free form at formspree.io and replace YOUR_FORM_ID below -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="row">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="Full name" required>
+            </div>
+            <div>
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="So we can reach you" required>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="model">Phone model</label>
+              <input id="model" name="model" type="text" placeholder="e.g. iPhone 13, Galaxy S22" required>
+            </div>
+            <div>
+              <label for="issue">What needs fixing?</label>
+              <select id="issue" name="issue" required>
+                <option value="">Choose one</option>
+                <option>Cracked or broken screen</option>
+                <option>Battery</option>
+                <option>Charging port</option>
+                <option>Camera</option>
+                <option>Water damage</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="where">Where should we meet you?</label>
+            <input id="where" name="location" type="text" placeholder="Address or area" required>
+          </div>
+          <div>
+            <label for="msg">Anything else we should know?</label>
+            <textarea id="msg" name="message" placeholder="Optional details"></textarea>
+          </div>
+          <button class="btn" type="submit">Send request</button>
+          <p class="note">We'll only use your details to arrange your repair.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Glassup</strong> &middot; Mobile Repair at Your Door</p>
+    <p>&copy; <span id="yr">2026</span> Glassup. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
